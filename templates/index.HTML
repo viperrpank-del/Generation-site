@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Генератор паролей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Подключение внешнего CSS -->
 </head>
 <body>
     <div class="container">
         <h1>Генератор паролей</h1>
         <form method="post">
-            <label for="length">Длина пароля:</label>
-            <input type="number" id="length" name="length" value="12" min="4" max="20">
             <button type="submit">Сгенерировать пароль</button>
         </form>
         {% if password %}
-            <h2>Сгенерированный пароль:</h2>
-            <p>{{ password }}</p>
+            <h2>Сгенерированный пароль: <span class="password">{{ password }}</span></h2>
         {% endif %}
     </div>
 </body>
