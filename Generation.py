@@ -4,9 +4,15 @@ import string
 
 app = Flask(__name__)
 
-def generate_password():
+def generate_password(complexity):
+    if complexity == 'simple':
+        # Простая сложность: только буквы и цифры
+        characters = string.ascii_letters + string.digits
+    else:
+        # Сложная сложность: буквы, цифры и специальные символы
+        characters = string.ascii_letters + string.digits + string.punctuation
+
     length = random.randint(8, 16)  # Случайная длина пароля от 8 до 16 символов
-    characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
 
@@ -14,7 +20,8 @@ def generate_password():
 def index():
     password = ''
     if request.method == 'POST':
-        password = generate_password()  # Генерация пароля при нажатии кнопки
+        complexity = request.form.get('complexity')  # Получаем выбранную сложность
+        password = generate_password(complexity)  # Генерация пароля в зависимости от сложности
     return render_template('index.html', password=password)
 
 if __name__ == '__main__':
