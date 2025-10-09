@@ -22,8 +22,11 @@
 ## Структура проекта
 <img width="803" height="552" alt="Screenshot_1" src="https://github.com/user-attachments/assets/416d99f3-eb84-4f2c-b8b0-dc7d4fbbd504" />
 
+## Работа приложения
 
-
+1. Переходите по локальной ссылке.
+2. Нажимаете кнопку: "Сгенерировать пароль" и под этой кнопкой вы увидите сгенерированый пароль.
+<img width="502" height="309" alt="Screenshot_31" src="https://github.com/user-attachments/assets/72b9a701-a9f8-4445-bed4-79db4f89edf2" />
 
 
    
