@@ -22,7 +22,7 @@
 4. Сгенерированный пароль сохранится в истории на странице ниже.
 
 ## Структура проекта
-<img width="803" height="552" alt="Screenshot_1" src="https://github.com/user-attachments/assets/416d99f3-eb84-4f2c-b8b0-dc7d4fbbd504" />
+<img width="450" height="246" alt="image" src="https://github.com/user-attachments/assets/39932511-86a0-47ed-a2d7-8dbe51d3db17" />
 
 ## Работа приложения
 
