@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,58 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Генератор паролей</h1>
-    <form method="POST">
-        <label for="complexity">Выберите сложность пароля:</label><br>
-        <input type="radio" id="simple" name="complexity" value="simple" checked>
-        <label for="simple">Простая</label><br>
-        <input type="radio" id="complex" name="complexity" value="complex">
-        <label for="complex">Сложная</label><br><br>
-        <button type="submit">Сгенерировать пароль</button>
-    </form>
+    <div class="container">
+        <h1>Генератор паролей</h1>
 
-    {% if password %}
-        <h2>Сгенерированный пароль: {{ password }}</h2>
-    {% endif %}
+        <form method="POST">
+            <div class="form-group">
+                <label for="site">Сайт:</label>
+                <input type="text" id="site" name="site" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login_name">Логин:</label>
+                <input type="text" id="login_name" name="login_name" required>
+            </div>
+
+            <label for="complexity">Выберите сложность пароля:</label><br>
+            <input type="radio" id="simple" name="complexity" value="simple" checked>
+            <label for="simple">Простая</label><br>
+            <input type="radio" id="complex" name="complexity" value="complex">
+            <label for="complex">Сложная</label><br><br>
+
+            <button type="submit">Сгенерировать и сохранить пароль</button>
+        </form>
+
+        {% if passwords_history %}
+            <div class="history-section">
+                <h2>История паролей</h2>
+                <div class="passwords-list">
+                    {% for item in passwords_history %}
+                    <div class="password-item">
+                        <div class="site-login">
+                            <div class="field">
+                                <span class="label">Сайт:</span>
+                                <span class="value">{{ item.site }}</span>
+                            </div>
+                            <div class="field">
+                                <span class="label">Логин:</span>
+                                <span class="value">{{ item.login }}</span>
+                            </div>
+                        </div>
+                        <div class="saved-password">
+                            <span class="label">Пароль:</span>
+                            <span class="value">{{ item.password }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="logout-link">
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        </div>
+    </div>
 </body>
 </html>
